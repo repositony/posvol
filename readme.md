@@ -29,8 +29,11 @@ Note: --help shows more information and examples
 Very simple reader for UKAEA CuV posvol binaries, skipping the need to open a
 special viewer or sort it out manually just to check simple properties.
 
-Allows for 1:1 conversion to a text file, a more human-readable text file, and
-to the JSON format.
+Allows for conversion to:
+
+- 1:1 conversion text file
+- Human-readable text file
+- JSON data format
 
 The endian is assumed to be the same as the native type of the system this tool
 is run on. If needed, an option can be provided in future updates.
@@ -88,7 +91,7 @@ By default the file names are 'posvol.txt' for ascii file formats, and
 This can be changed by providing `--output` with a name.
 
 ```bash
-# Output a files named 'myfile.txt' and 'myfile.json'
+# Output two files named 'myfile.txt' and 'myfile.json'
 posvol plot_fmesh_104.bin       \
             --json              \
             --ascii             \
