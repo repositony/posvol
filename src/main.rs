@@ -9,8 +9,8 @@ mod cli;
 use cli::Cli;
 
 // ntools modules
-use ntools::format::f;
 use ntools::posvol::{self, Posvol};
+use ntools::utils::f;
 
 // external crates
 use anyhow::Result;
