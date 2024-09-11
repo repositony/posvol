@@ -1,10 +1,8 @@
-# posvol tool
+# A posvol file reader (`posvol`)
 
 Command line tool to inspect and convert UKAEA CuV posvol files.
 
 ```bash
-Inspect and convert UKAEA CuV posvol binaries
-
 Usage: posvol <file> [options]
 
 Arguments:
@@ -24,6 +22,44 @@ Conversion options:
 Note: --help shows more information and examples
 ```
 
+Help is printed with the `-h` flag, and `--help` will show examples, default
+values, examples, and any important behaviour.
+
+## Install
+
+Direct from github:
+
+```shell
+cargo install --git https://github.com/repositony/posvol.git
+```
+
+All executables are under `~/.cargo/bin/`, which should already be in your path
+after installing Rust.
+
+<details>
+  <summary>Click here if you have never used Rust</summary><br />
+
+If you have never used the Rust programming language, the toolchain is easily
+installed from the [official website](https://www.rust-lang.org/tools/install)
+
+### Unix (Linux/MacOS)
+
+Run the following to download and run `rustup-init.sh`, which will install 
+the Rust toolchain for your platform.
+
+```shell
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+This should have added `source $HOME/.cargo/env` to the bash profile, so update
+your environment with `source ~/.bashrc`.
+
+### Windows
+
+On Windows, download and run `rustup-init.exe` from the [official installs](https://www.rust-lang.org/tools/install).
+
+</details>
+
 ## Description
 
 Very simple reader for UKAEA CuV posvol binaries, skipping the need to open a
@@ -37,9 +73,6 @@ Allows for conversion to:
 
 The endian is assumed to be the same as the native type of the system this tool
 is run on. If needed, an option can be provided in future updates.
-
-Help is printed with the `-h` flag, and `--help` will show examples, default
-values, examples, and any important behaviour.
 
 ## Examples
 
@@ -98,28 +131,4 @@ posvol plot_fmesh_104.bin       \
             --output myfile
 ```
 
-## Install
 
-Direct from github:
-
-```shell
-cargo install --git https://github.com/repositony/posvol.git
-```
-
-All executables are under `~/.cargo/bin/`, which should already be in your path
-after installing Rust.
-
-<details>
-  <summary>Click here if you have never used Rust</summary>
-
-If you have never used the Rust programming language, the toolchain is easily
-installed from the [official website](https://www.rust-lang.org/tools/install)
-
-```shell
-curl https://sh.rustup.rs -sSf | sh
-```
-
-This should have added `source $HOME/.cargo/env` to the bash profile, so update
-your environment with `source ~/.bashrc`.
-
-</details>
