@@ -7,17 +7,17 @@ license      = "GPL-3.0 license"
 name         = "posvol"
 readme       = "readme.md"
 repository   = "https://github.com/repositony/posvol"
-rust-version = "1.77"
-version      = "1.0.2"
+rust-version = "1.79"
+version      = "1.0.3"
 
 [dependencies]
-anyhow = "1.0"
-clap = { version = "4.2", features = ["derive", "wrap_help"] }
-log = "0.4"
+anyhow = "1.0.94"
+clap = { version = "4.5.23", features = ["derive", "wrap_help"] }
+log = "0.4.22"
 ntools = { git = "https://github.com/repositony/ntools.git", features = [
     "posvol",
 ] }
-stderrlog = "0.6"
+stderrlog = "0.6.0"
 
 [lints.rust]
 unsafe_code = "forbid"
