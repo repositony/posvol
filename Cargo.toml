@@ -7,16 +7,19 @@ license      = "GPL-3.0 license"
 name         = "posvol"
 readme       = "readme.md"
 repository   = "https://github.com/repositony/posvol"
-rust-version = "1.79"
-version      = "1.0.3"
+rust-version = "1.81"
+version      = "1.0.5"
 
 [dependencies]
-anyhow = "1.0.94"
-clap = { version = "4.5.23", features = ["derive", "wrap_help"] }
-log = "0.4.22"
-ntools = { git = "https://github.com/repositony/ntools.git", features = [
+# core library, not currently for public use
+ntools = { git = "ssh://git@github.com/repositony/ntools.git", branch = "main", features = [
     "posvol",
 ] }
+
+# external
+anyhow    = "1.0.97"
+clap      = { version = "4.5.31", features = ["derive", "wrap_help"] }
+log       = "0.4.26"
 stderrlog = "0.6.0"
 
 [lints.rust]
@@ -25,3 +28,8 @@ unsafe_code = "forbid"
 [[bin]]
 doc  = false
 name = "posvol"
+
+[profile.dist]
+allow-dirty = ["ci", "msi"]
+inherits    = "release"
+lto         = "thin"

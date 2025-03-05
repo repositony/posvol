@@ -1,17 +1,19 @@
 # A posvol file reader (`posvol`)
 
+[![GitHub release](https://img.shields.io/github/v/release/repositony/posvol?include_prereleases)](https://github.com/repositony/posvol/releases/latest)
+
 Command line tool to inspect and convert UKAEA CuV posvol files.
 
 ```bash
 Usage: posvol <file> [options]
 
 Arguments:
-  <file>  Path to posvol binary file
+  <file>               Path to posvol binary file
 
 Options:
-  -v, --verbose...  Verbose logging (-v, -vv)
-  -q, --quiet       Supress all log output (overrules --verbose)
-  -h, --help        Print help (see more with '--help')
+  -v, --verbose...     Verbose logging (-v, -vv)
+  -q, --quiet          Supress all log output (overrules --verbose)
+  -h, --help           Print help (see more with '--help')
 
 Conversion options:
   -o, --output <name>  Name of output files [default: posvol]
@@ -25,42 +27,7 @@ Note: --help shows more information and examples
 Help is printed with the `-h` flag, and `--help` will show examples, default
 values, examples, and any important behaviour.
 
-## Install
-
-Direct from github:
-
-```shell
-cargo install --git https://github.com/repositony/posvol.git
-```
-
-All executables are under `~/.cargo/bin/`, which should already be in your path
-after installing Rust.
-
-<details>
-  <summary>Click here if you have never used Rust</summary><br />
-
-If you have never used the Rust programming language, the toolchain is easily
-installed from the [official website](https://www.rust-lang.org/tools/install)
-
-### Unix (Linux/MacOS)
-
-Run the following to download and run `rustup-init.sh`, which will install 
-the Rust toolchain for your platform.
-
-```shell
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
-
-This should have added `source $HOME/.cargo/env` to the bash profile, so update
-your environment with `source ~/.bashrc`.
-
-### Windows
-
-On Windows, download and run `rustup-init.exe` from the [official installs](https://www.rust-lang.org/tools/install).
-
-</details>
-
-## Description
+## Overview
 
 Very simple reader for UKAEA CuV posvol binaries, skipping the need to open a
 special viewer or sort it out manually just to check simple properties.
@@ -73,6 +40,46 @@ Allows for conversion to:
 
 The endian is assumed to be the same as the native type of the system this tool
 is run on. If needed, an option can be provided in future updates.
+
+## Install
+
+Download and unpack the latest binary executable release [here](https://github.com/repositony/posvol/releases/latest) for running in a terminal/powershell.
+
+### Linux/MacOS
+
+Unpack the relevant executable from the [latest release](https://github.com/repositony/posvol/releases/latest).
+
+```bash
+# Linux
+tar -xjf posvol-x86_64-unknown-linux-gnu.tar.xz  # Generic linux
+tar -xjf posvol-aarch64-unknown-linux-gnu.tar.xz # ARM64 Linux
+
+# MacOS
+tar -xjf posvol-x86_64-apple-darwin.tar.xz       # Intel macOS
+tar -xjf posvol-aarch64-apple-darwin.tar.xz      # Apple Silicon macOS
+```
+
+And either run from there or add the executable to your `$PATH`.
+
+```bash
+./posvol -h
+```
+
+### Windows
+
+Extract `posvol-x86_64-pc-windows-msvc.zip` from the [latest release](https://github.com/repositony/posvol/releases/latest).
+
+Navigate to this folder and run from powershell.
+
+```bash
+.\posvol.exe -h
+```
+
+This may be set as an alias for convenience.
+
+```powershell
+Set-Alias -Name posvol -Value C:\Path\To\Folder\posvol.exe
+```
 
 ## Examples
 
@@ -130,5 +137,3 @@ posvol plot_fmesh_104.bin       \
             --ascii             \
             --output myfile
 ```
-
-
